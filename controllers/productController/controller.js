@@ -26,6 +26,19 @@ module.exports = {
       })
     }
   },
+  getMadeBy: async (req, res) => {
+    try {
+      const data = await Product.find().populate("madeBy");
+      res.status(200).json({
+        message: "Products with made by details fetched successfully",
+        data
+      })
+    } catch (error) {
+      res.status(500).json({
+        message: "Internal Server Error"
+      })
+    }
+  },
   update: async (req, res) => {
     try {
       await Product.findByIdAndUpdate(req.query.id, req.body);

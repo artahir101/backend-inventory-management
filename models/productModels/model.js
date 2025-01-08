@@ -9,7 +9,11 @@ const productSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: true,
-    }
+    },
+    madyBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Employee"
+    },    
   },
   { timestamps: true }
 );
